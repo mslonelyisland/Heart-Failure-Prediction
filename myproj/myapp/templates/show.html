@@ -1,0 +1,52 @@
+<!-- For data tables -->
+{% extends "base.html" %}
+{% block title %} Records {% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+    <span> <a href="/predict" class="btn btn-primary"> Predict </a></span>
+    <h2> Predicted Data Set Records </h2>
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Age</th>
+                    <th>Anemia</th>
+                    <th>Creatinine Phosphokinase</th>
+                    <th>Diabetes</th>
+                    <th>Ejection Fraction</th>
+                    <th>High Blood Pressure</th>
+                    <th>Platelets</th>
+                    <th>Serum Creatinin</th>
+                    <th>Serum Sodium</th>
+                    <th>Sex</th>
+                    <th>Smoking</th>
+                    <th>Time</th>
+                    <th>Death Event</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prediction in predictions %}
+                <tr>
+                    <th scope="row">{{ prediction.id }}</th> <!-- Assuming id is an attribute of prediction -->
+                    <td>{{ prediction.age }}</td>
+                    <td>{{ prediction.anemia }}</td>
+                    <td>{{ prediction.creatinine_phosphokinase }}</td>
+                    <td>{{ prediction.diabetes }}</td>
+                    <td>{{ prediction.ejection_fraction }}</td>
+                    <td>{{ prediction.high_blood_pressure }}</td>
+                    <td>{{ prediction.platelets }}</td>
+                    <td>{{ prediction.serum_creatinin }}</td>
+                    <td>{{ prediction.serum_sodium }}</td>
+                    <td>{{ prediction.sex }}</td>
+                    <td>{{ prediction.smoking }}</td>
+                    <td>{{ prediction.time }}</td>
+                    <td>{{ prediction.predicted_death_event }}</td> <!-- Assuming this is the prediction result -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

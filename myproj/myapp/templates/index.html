@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %} Records {%endblock title%}
+
+{% block content%}
+<h3> Prediction Form </h3>
+<form method="POST" class=" post-form" action="/predict">
+    {% csrf_token %}
+    <div class="form-group">
+      <label>Age</label>
+      <input class="form-control" id="age" name="age" placeholder="Enter Age">
+    </div>
+    <div class="form-group">
+      <label for="anemia">Anemia</label>
+      <input  class="form-control" id="anemia" name="anemia" placeholder="Anemia">
+    </div>
+    <div class="form-group">
+        <label>Creatinine Phosphokinase</label>
+        <input  class="form-control" id="creatinine_phosphokinase" name = "creatinine_phosphokinase" placeholder="creatinine_phosphokinase">
+    </div>
+    <div class="form-group">
+        <label>Diabetes</label>
+        <input  class="form-control" id="diabetes" name="diabetes" placeholder="diabetes">
+    </div>
+    <div class="form-group">
+        <label>Ejection Fraction</label>
+        <input class="form-control" id="ejection_fraction" name="ejection_fraction" placeholder="Anemia">
+    </div>
+    <div class="form-group">
+        <label> High Blood Pressure</label>
+        <input class="form-control" id="high_blood_pressure" name="high_blood_pressure" placeholder="HBP">
+    </div>
+    <div class="form-group">
+        <label>Platelets</label>
+        <input class="form-control" id="platelets" name="platelets" placeholder="Platelets">
+    </div>
+    <div class="form-group">
+        <label>Creatinine</label>
+        <input class="form-control" id="serum_creatinin" name="serum_creatinin" placeholder="Creatinine">
+    </div>
+    <div class="form-group">
+        <label>Sodium</label>
+        <input class="form-control" id="serum_sodium" name="serum_sodium" placeholder="Sodium">
+    </div>
+    <div class="Sex">
+        <label>Sex</label>
+        <input class="form-control" id="sex" name="sex" placeholder="Sex">
+    </div>
+    <div class="Smoking">
+        <label>Smoking</label>
+        <input class="form-control" id="smoking" name="smoking" placeholder="Smoking">
+    </div>
+    <div class="form-group">
+        <label>Time	</label>
+        <input class="form-control" id="time" name="time" placeholder="Time">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+<!-- To display the result -->
+{% if prediction is not None %}
+    <h4>Prediction Result:</h4>
+    <p>The model predicts: 
+        {% if prediction == 1 %}
+            <strong>Death Event</strong>
+        {% else %}
+            <strong>No Death Event</strong>
+        {% endif %}
+    </p>
+{% else %}
+    <p>Fill Up Form to get result. </p>
+{% endif %}
+
+
+
+{% endblock content%}

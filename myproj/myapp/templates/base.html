@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title%}My Django App{% endblock title%}</title>
+
+    
+     <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load static%}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="container">
+    <div class="title">
+        <h3> Heart Prediction Dataset with Django and Mysql CRUD </h3>
+        {% block content%}
+        <!-- Bootstrap Form -->
+        
+        
+        {% endblock%}
+    </div>
+
+</div>
+</body>
+</html>
