@@ -21,6 +21,10 @@ def predict(request):
     if request.method == "POST":
         try:
             # Extract data from POST
+                # age - variable to store the extracted value
+                # 'age'-  retrieves the value from the form input with the name age
+                # variable_name = data_type(request.POST.get('attribute_name'))
+                
             age = int(request.POST.get('age'))
             anemia = int(request.POST.get('anemia'))
             creatinine_phosphokinase = int(request.POST.get('creatinine_phosphokinase'))
@@ -55,6 +59,9 @@ def predict(request):
             rounded_prediction = round(prediction[0])
 
             # Save the input data and prediction result to the database
+                # age - is the name of the attribute (or field) in the HeartPrediction model.
+                # The 'age' field in the model is set to the value of the 'age' variable above (not in the input data)
+
             HeartPrediction.objects.create(
                 age=age,
                 anemia=anemia,
